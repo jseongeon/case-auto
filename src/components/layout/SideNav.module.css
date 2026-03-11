@@ -1,0 +1,54 @@
+.nav {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  padding: 0;
+}
+
+.dot:hover,
+.dot.active {
+  background: var(--color-primary);
+  transform: scale(1.5);
+}
+
+.dot[data-label]::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-bg-dark);
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.dot:hover[data-label]::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+}

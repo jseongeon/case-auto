@@ -1,0 +1,32 @@
+.block {
+  text-align: center;
+  padding: 80px 32px;
+}
+
+.mark {
+  font-size: 120px;
+  line-height: 0.8;
+  color: var(--color-primary);
+  opacity: 0.25;
+  font-family: Georgia, serif;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 700;
+  color: var(--color-text-on-dark);
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  max-width: 760px;
+  margin: 0 auto;
+  white-space: pre-line;
+}
+
+.author {
+  margin-top: 28px;
+  font-size: 14px;
+  color: rgba(242, 244, 246, 0.45);
+  letter-spacing: 1px;
+}

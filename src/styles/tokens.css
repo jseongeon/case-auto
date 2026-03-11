@@ -1,0 +1,37 @@
+/* =============================================
+   tokens.css — 디자인 토큰 (컬러, 간격, 타이포)
+   ============================================= */
+:root {
+  /* Colors */
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F7F8FA;
+  --color-bg-dark: #191F28;
+  --color-text: #333D4B;
+  --color-text-sub: #8B95A1;
+  --color-text-on-dark: #F2F4F6;
+  --color-primary: #028090;
+  --color-primary-light: #E6F3F5;
+  --color-primary-glow: rgba(2, 128, 144, 0.25);
+  --color-accent: #4A6FA5;
+  --color-success: #00C853;
+  --color-border: #E5E8EB;
+
+  /* Typography */
+  --font-main: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --fs-hero: clamp(42px, 7vw, 80px);
+  --fs-h2: clamp(32px, 5vw, 56px);
+  --fs-h3: clamp(20px, 3vw, 28px);
+  --fs-body: 18px;
+  --fs-sm: 15px;
+
+  /* Spacing */
+  --section-padding: clamp(80px, 12vw, 160px) 0;
+  --content-max: 1080px;
+  --gap-card: 24px;
+
+  /* Components */
+  --card-radius: 16px;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

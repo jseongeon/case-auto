@@ -1,0 +1,24 @@
+.wrap {
+  text-align: center;
+}
+
+.number {
+  font-size: clamp(80px, 12vw, 140px);
+  font-weight: 800;
+  letter-spacing: -4px;
+  color: var(--color-primary);
+  line-height: 1;
+  display: block;
+}
+
+.suffix {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-text-sub);
+}
+
+.label {
+  font-size: 16px;
+  color: var(--color-text-sub);
+  margin-top: 12px;
+}
