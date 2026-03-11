@@ -46,15 +46,14 @@ const Header = () => {
             </button>
           ))}
         </nav>
-        <a
-          href={pdfUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => window.open(pdfUrl, '_blank', 'width=1000,height=800')}
           className={styles.pdfBtn}
+          style={{ cursor: 'pointer' }}
         >
           <FileText size={16} />
           <span>PDF 보기</span>
-        </a>
+        </button>
       </div>
     </header>
   )
