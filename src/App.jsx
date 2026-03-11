@@ -84,10 +84,10 @@ const flowStepBase = {
   background: '#fff',
   border: '2px solid var(--color-border)',
   borderRadius: 'var(--card-radius)',
-  padding: '36px 32px',
-  width: '360px',
-  minWidth: '360px',
-  maxWidth: '360px',
+  padding: 'clamp(24px, 5vw, 36px) clamp(20px, 5vw, 32px)',
+  width: 'min(360px, 85vw)',
+  minWidth: 'min(360px, 85vw)',
+  maxWidth: 'min(360px, 85vw)',
   cursor: 'pointer',
   transition: 'all 0.4s ease',
   flexShrink: 0,
@@ -119,9 +119,9 @@ const FlowSection = () => {
     target: targetRef,
   })
 
-  // 카드가 4개(360px*4 + 화살표)이므로 가로로 이동해야 할 거리가 대략 컨테이너 너비 정도입니다.
-  // 여백을 포함하여 x 위치를 -65% 정도까지 왼쪽으로 이동시킵니다.
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"])
+  // 스크롤 시 컨테이너를 왼쪽으로 이동시킵니다.
+  // 모바일 등 화면이 작아져 컨테이너 길이에 변동이 생겨도 동작하도록 calc(-100% + 100vw) 사용
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "calc(-100% + 100vw)"])
 
   useEffect(() => {
     const t = setInterval(() => setActive(a => (a + 1) % FLOW_STEPS.length), 2500)
@@ -137,8 +137,8 @@ const FlowSection = () => {
           <SectionTitle eyebrow="System Flow" title="시스템 전체 흐름" subtitle="스크롤을 내리면 4단계 파이프라인이 전개됩니다" />
         </div>
 
-        {/* 좌측은 1080px 중앙 컨테이너와 일치시키기 위한 패딩 */}
-        <div style={{ width: '100vw', paddingLeft: 'calc(50vw - 540px)', boxSizing: 'border-box' }}>
+        {/* 좌측은 1080px 중앙 컨테이너와 일치시키기 위한 패딩 (모바일에서는 최소 32px 유지) */}
+        <div style={{ width: '100vw', paddingLeft: 'max(32px, calc(50vw - 540px))', boxSizing: 'border-box' }}>
 
           <motion.div style={{ x, display: 'flex', flexWrap: 'nowrap', gap: '0', alignItems: 'stretch', width: 'max-content', padding: '16px 0 48px' }}>
             {FLOW_STEPS.map((step, i) => (
