@@ -67,6 +67,39 @@
   color: var(--color-text-on-dark);
 }
 
+.pdfBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition);
+  border: 1px solid transparent;
+}
+
+.pdfBtn:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.header.dark .pdfBtn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-on-dark);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header.dark .pdfBtn:hover {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
 @media (max-width: 768px) {
   .nav {
     display: none;

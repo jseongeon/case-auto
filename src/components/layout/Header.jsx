@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { FileText } from 'lucide-react'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
@@ -25,22 +26,36 @@ const Header = () => {
     setActiveNav(id)
   }
 
+  // Vite 프로덕션 빌드에서 정적 에셋 경로 처리를 위함
+  const pdfUrl = import.meta.env.BASE_URL + '업무사례_자동화_시스템.pdf'
+
   return (
     <header className={`${styles.header} ${dark ? styles.dark : ''}`}>
       <div className={styles.logo}>
         업무사례 <span>자동화 시스템</span>
       </div>
-      <nav className={styles.nav}>
-        {NAV_ITEMS.map(({ label, target }) => (
-          <button
-            key={target}
-            className={`${styles.navLink} ${activeNav === target ? styles.active : ''}`}
-            onClick={() => scrollTo(target)}
-          >
-            {label}
-          </button>
-        ))}
-      </nav>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
+        <nav className={styles.nav}>
+          {NAV_ITEMS.map(({ label, target }) => (
+            <button
+              key={target}
+              className={`${styles.navLink} ${activeNav === target ? styles.active : ''}`}
+              onClick={() => scrollTo(target)}
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+        <a
+          href={pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.pdfBtn}
+        >
+          <FileText size={16} />
+          <span>PDF 보기</span>
+        </a>
+      </div>
     </header>
   )
 }
